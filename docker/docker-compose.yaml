@@ -1174,8 +1174,8 @@ services:
       - api
       - web
     ports:
-      - "8080:80"
-      - "8443:443"
+      - "${EXPOSE_PORT:-80}:80"
+      - "${EXPOSE_HTTPS_PORT:-443}:443"
 
   # The Weaviate vector store.
   weaviate:
