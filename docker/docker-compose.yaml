@@ -1176,6 +1176,10 @@ services:
     ports:
       - "${EXPOSE_PORT:-80}:80"
       - "${EXPOSE_HTTPS_PORT:-443}:443"
+    networks:
+      - ssrf_proxy_network
+      - default
+      - dokploy-network
 
   # The Weaviate vector store.
   weaviate:
@@ -1671,6 +1675,9 @@ networks:
   opensearch-net:
     driver: bridge
     internal: true
+  dokploy-network:
+    external: true
+    
 
 volumes:
   oradata:
